@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Trip} from 'src/app/model/trip';
+import {TripsService} from 'src/app/service/trips.service';
 
 @Component({
   selector: 'app-all-trips',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllTripsComponent implements OnInit {
 
-  constructor() { }
+  trips: Trip[] = [];
+
+  constructor(private router: Router, private tripsService: TripsService) {}
 
   ngOnInit() {
+    this.getTrips();
+  }
+
+  // utilisation d'un Observable à la place du service initial
+  getTrips(): void {
+    this.tripsService.getTrips().subscribe(trips => this.trips = trips);
   }
 
 }

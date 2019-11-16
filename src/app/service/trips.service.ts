@@ -10,12 +10,11 @@ import {Trip} from '../model/trip';
 })
 export class TripsService {
 
-  private tripsUrl = 'api/trips';
+  private tripsUrl = 'http://localhost:9090/trip/all';
 
 
   constructor(private http: HttpClient) { }
 
-  
 
   /** GET trips */
   // le flux retourné contiendra un tableau de voyages
