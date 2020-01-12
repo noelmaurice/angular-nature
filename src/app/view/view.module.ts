@@ -4,12 +4,17 @@ import { CommonModule } from '@angular/common';
 import { ViewRoutingModule } from './view-routing.module';
 import { HomeComponent } from '../view/home/home.component';
 
+import { AllTripsComponent } from '../component/trips/all-trips/all-trips.component';
+
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    ViewRoutingModule
-  ]
+	declarations: [
+		HomeComponent,
+		AllTripsComponent
+	],
+	imports: [
+		ViewRoutingModule,
+		CommonModule
+	]
 })
 export class ViewModule { }

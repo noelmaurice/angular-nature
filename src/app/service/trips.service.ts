@@ -20,6 +20,7 @@ export class TripsService {
   // le flux retourné contiendra un tableau de voyages
   getTrips(): Observable<Trip[]> {
     // requête HTTP sur l'URL passé en paramètre : retourne un flux qui contiendra un tableau de voyages
+
     return this.http.get<Trip[]>(this.tripsUrl).pipe(
       // affichage d'un message sur l'action
       tap(_ => this.log('fetched trips')),
