@@ -5,14 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './component/not-found/not-found.component';
+import { NotFoundComponent } from './component/shared/not-found/not-found.component';
 
 import { TripsService } from './service/trips.service';
 import { ViewModule } from './view/view.module';
 import { AppRoutingModule } from './app-routing.module';
-import { FooterComponent } from './component/footer/footer.component';
-import { HeaderComponent } from './component/header/header.component';
-import { BannerComponent } from './component/banner/banner.component';
+import { FooterComponent } from './component/shared/footer/footer.component';
+import { HeaderComponent } from './component/shared/header/header.component';
+import { BannerComponent } from './component/shared/banner/banner.component';
 
 
 @NgModule({
