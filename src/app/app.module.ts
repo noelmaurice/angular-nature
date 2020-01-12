@@ -6,12 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { AllTripsComponent } from './view/trips/all-trips/all-trips.component';
+import { AllTripsComponent } from './component/trips/all-trips/all-trips.component';
 import {TripsService} from './service/trips.service';
+import { ViewModule } from './view/view.module';
 
 const appRoutes: Routes = [
-  { path: 'trips', component: AllTripsComponent },
-  { path: '', redirectTo: 'trips', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'trips' }
 ];
 
@@ -25,7 +25,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+	ViewModule,
+    RouterModule.forRoot(appRoutes)   
   ],
   providers: [
     TripsService

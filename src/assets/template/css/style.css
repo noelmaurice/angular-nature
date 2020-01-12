@@ -518,11 +518,16 @@ margin-top: -40px;
 #fh5co-subscribe,
 #fh5co-info,
 #fh5co-pricing,
-#fh5co-faqs,
-#fh5co-footer {
+#fh5co-faqs {
   background-color: #fff;
   padding: 7em 0;
 }
+
+#fh5co-footer {
+  background-color: #fff;
+  padding: 0em 0;
+}
+
 @media screen and (max-width: 768px) {
   #fh5co-features,
   #fh5co-features-2,
