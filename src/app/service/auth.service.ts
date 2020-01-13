@@ -38,9 +38,9 @@ export class AuthService {
 		}
 	}
 
-	public autoLogin(user: any) {
+	public autoLogin(user: User) {
 		this.user.next(user);
-		of(this.login(user.email, user.password))
+		this.login(user.email, user.password)
 		.subscribe(
 			_ => this.router.navigate(['/home'])
 		);
