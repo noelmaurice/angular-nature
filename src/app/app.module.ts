@@ -11,8 +11,9 @@ import { TripsService } from './service/trips.service';
 import { ViewModule } from './view/view.module';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './component/shared/footer/footer.component';
-import { HeaderComponent } from './component/shared/header/header.component';
+import { NavbarComponent } from './component/shared/navbar/navbar.component';
 import { BannerComponent } from './component/shared/banner/banner.component';
+import { AuthService } from './service/auth.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { BannerComponent } from './component/shared/banner/banner.component';
 		AppComponent,
 		NotFoundComponent,
 		FooterComponent,
-		HeaderComponent,
+		NavbarComponent,
 		BannerComponent
 	],
 	imports: [
@@ -32,7 +33,8 @@ import { BannerComponent } from './component/shared/banner/banner.component';
 		AppRoutingModule
 	],
 	providers: [
-		TripsService
+		TripsService,
+		AuthService
 	],
 	bootstrap: [AppComponent]
 })

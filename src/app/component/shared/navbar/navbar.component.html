@@ -1,0 +1,38 @@
+<section id="fh5co-header">
+    <div class="container">
+    
+    
+      <nav role="navigation">
+        <ul class="pull-left left-menu">
+          <li><h1 id="fh5co-logo"><a href="https://ms2i.net" target="_blank">nature<span>.</span></a></h1></li>
+        </ul>
+        
+        <div *ngIf="user != null">
+        <ul class="pull-right right-menu">
+          
+          <li style="color: white;">
+          	Bonjour {{ user.name }}
+          </li>
+          
+          <li class="fh5co-cta-btn">
+          	<a (click)="logout()">Déconnexion</a>
+          </li>
+        </ul>
+        
+        </div>
+        
+        
+        <div *ngIf="user == null">
+        <ul class="pull-right right-menu">
+          
+          <li class="fh5co-cta-btn">
+          	<a (click)="navigate(loginPath)">Connexion</a>
+          </li>
+        </ul>
+        
+        </div>
+        
+      </nav>
+    </div>
+  </section>
+  <!-- #fh5co-header -->
