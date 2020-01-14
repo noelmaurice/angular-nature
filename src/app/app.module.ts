@@ -13,6 +13,8 @@ import { BannerComponent } from './component/shared/banner/banner.component';
 
 import { AuthService } from './service/auth.service';
 import { TripsService } from './service/trips.service';
+import { InMemoryDataService } from './service/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 @NgModule({
@@ -28,11 +30,12 @@ import { TripsService } from './service/trips.service';
 		ReactiveFormsModule,
 		HttpClientModule,
 		ViewModule,
-		AppRoutingModule
+		AppRoutingModule,
+		HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
 	],
 	providers: [
 		TripsService,
-		AuthService
+		AuthService		
 	],
 	bootstrap: [AppComponent]
 })

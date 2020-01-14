@@ -14,6 +14,11 @@ export class ErrorService {
 			category: 'danger',
 			message: msg
 		});
+		
+		console.error(error);
+      	console.log('Operation failed: ' + error.message);
+		console.log('Operation failed: ' + msg);
+
 		return throwError(error);
 	}
 }

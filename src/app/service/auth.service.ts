@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
 import { Router } from '@angular/router';
-import { USERS } from '../model/mock-users';
+import { USERS } from '../model/mock/mock-users';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { ErrorService } from './error.service';
+import { ToastrService } from './toastr.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -17,22 +18,25 @@ export class AuthService {
 
 	constructor(
 		private router: Router,
-		private errorService: ErrorService) { }
+		private errorService: ErrorService,
+		private toastrService: ToastrService) { }
 
 	public login(email: string, password: string): Observable<User | any> {
 
-		// utilisateur unique => pas nécessaire d'interroger un web service
-		if (email == USERS[0].email && password == USERS[0].password) 
-		{
-			return of(USERS[0]).pipe (
+		if (email == USERS[0].email && password == USERS[0].password) {
+			return of(USERS[0]).pipe(
 				tap(user => this.user.next(user)),
 				tap(user => this.saveAuthData(user)),
+				tap(_ => this.toastrService.showToastr(
+					{
+						category: 'success',
+						message: 'Compte utilisateur connecté'
+					})),
 				catchError(error => this.errorService.handleError(error, 'Login impossible'))
 			);
 		}
-		else
-		{
-			return of(null).pipe (
+		else {
+			return of(null).pipe(
 				catchError(error => this.errorService.handleError(error, 'Login impossible'))
 			);
 		}
@@ -41,9 +45,9 @@ export class AuthService {
 	public autoLogin(user: User) {
 		this.user.next(user);
 		this.login(user.email, user.password)
-		.subscribe(
-			_ => this.router.navigate(['/home'])
-		);
+			.subscribe(
+				_ => this.router.navigate(['/home'])
+			);
 	}
 
 	public logout(): void {
