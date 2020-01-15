@@ -1,0 +1,6 @@
+<div class="alert alert-success" 
+	role="alert"
+	*ngIf="(toastr$ | async) as toastr" 
+	(click)='closeToastr()'>
+    {{ toastr.message }}
+</div>

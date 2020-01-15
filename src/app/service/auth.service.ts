@@ -27,16 +27,23 @@ export class AuthService {
 			return of(USERS[0]).pipe(
 				tap(user => this.user.next(user)),
 				tap(user => this.saveAuthData(user)),
+				
 				tap(_ => this.toastrService.showToastr(
 					{
 						category: 'success',
-						message: 'Compte utilisateur connecté'
+						message: 'Bienvenue ' + this.user.value.name
 					})),
 				catchError(error => this.errorService.handleError(error, 'Login impossible'))
 			);
 		}
 		else {
 			return of(null).pipe(
+				tap(_ => this.router.navigate(['login'])),
+				tap(_ => this.toastrService.showToastr(
+					{
+						category: 'success',
+						message: 'Utilisateur inconnu'
+					})),
 				catchError(error => this.errorService.handleError(error, 'Login impossible'))
 			);
 		}
@@ -53,8 +60,15 @@ export class AuthService {
 	public logout(): void {
 		localStorage.removeItem('emailUser');
 		localStorage.removeItem('passwordUser');
+		
+		this.toastrService.showToastr(
+			{
+				category: 'success',
+				message: 'A bientôt ' + this.user.value.name
+			});
 
 		this.user.next(null);
+		
 		this.router.navigate(['/home'])
 	}
 

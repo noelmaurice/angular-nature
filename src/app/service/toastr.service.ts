@@ -8,13 +8,7 @@ import { Toastr } from '../model/toastr';
 })
 export class ToastrService {
  
- // private toastr: BehaviorSubject<Toastr|null> = new BehaviorSubject(null);
- 
- private toastr: BehaviorSubject<any> = new BehaviorSubject({ 
-  category: 'success', 
-  message: 'Le service de retour utilisateur fonctionne !'
- });
- 
+ private toastr: BehaviorSubject<Toastr|null> = new BehaviorSubject(null);
  
  public readonly toastr$: Observable<Toastr|null> = this.toastr.asObservable();
  
