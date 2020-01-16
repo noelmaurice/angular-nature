@@ -38,7 +38,6 @@ export class AuthService {
 		}
 		else {
 			return of(null).pipe(
-				tap(_ => this.router.navigate(['login'])),
 				tap(_ => this.toastrService.showToastr(
 					{
 						category: 'success',
