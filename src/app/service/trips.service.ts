@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Trip } from '../model/trip';
@@ -23,4 +23,26 @@ export class TripsService {
 			catchError(error => this.errorService.handleError(error, "getTrips"))
 		);
 	}
+
+	public getTrip(id: number): Observable<Trip> {
+		const url = this.tripsUrl + '/' + id;
+
+		return this.http.get<Trip>(url).pipe(
+			tap(_ => console.log('fetched trips id ' + id)),
+			catchError(error => this.errorService.handleError(error, "getTrip id " + id))
+		);
+	}
+
+	deleteTrip(trip: Trip): Observable<Trip> {
+		const url = this.tripsUrl + '/' + trip.id;
+		const httpOptions = {
+			headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+		};
+
+		return this.http.delete<Trip>(url, httpOptions).pipe(
+			tap(_ => console.log('deleted trip id=' + trip.id)),
+			catchError(error => this.errorService.handleError(error, 'deleteTrip'))
+		);
+	}
+
 }
