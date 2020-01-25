@@ -33,7 +33,7 @@ export class TripsService {
 		);
 	}
 
-	deleteTrip(trip: Trip): Observable<Trip> {
+	public deleteTrip(trip: Trip): Observable<Trip> {
 		const url = this.tripsUrl + '/' + trip.id;
 		const httpOptions = {
 			headers: new HttpHeaders({ 'Content-Type': 'application/json' })
