@@ -12,12 +12,15 @@
   	</div>
   	
   <div class="card-body fh5co-text">
-    <h5 class="card-title">{{ trip.title }}</h5>
+    <h2 class="card-title">{{ trip.title }}</h2>
     <p class="card-text">{{ trip.activity }}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+    <a class="btn btn-primary" style="margin-left: 1px; margin-right: 1px" (click)="goBack()">Retour</a>
+    <a class="btn btn-primary" style="margin-left: 1px; margin-right: 1px" (click)="goEdit(trip)">Editer</a>
+    <a class="btn btn-primary" style="margin-left: 1px; margin-right: 1px" (click)="delete(trip)">Supprimer</a>
+
   </div>
 </div>
-
 
 </div>
 </div>
