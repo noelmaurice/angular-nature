@@ -22,7 +22,7 @@ export class DetailTripComponent implements OnInit {
 	ngOnInit(): void {
 		// propriété snapshot => récupération synchrone du paramètre
 		const id: number = <any>this.route.snapshot.paramMap.get('id');
-		console.log(id);
+		console.log("ngOnInit : trip id => " + id);
 				
     	// un observable est utilisé à la place du service initial
     	this.tripsService.getTrip(id).subscribe(trip => this.trip = trip);

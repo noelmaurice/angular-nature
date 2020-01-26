@@ -1,0 +1,16 @@
+.box
+{
+	display: flex;
+	justify-content: center; /* alignement sur l'axe principal */
+	align-items: center; /* alignement sur l'axe secondaire */
+	padding: 10px;
+}
+
+.image {
+	display: flex;
+	justify-content: center; /* alignement sur l'axe principal */
+}
+
+.image>img {
+	max-width: 100%;
+}

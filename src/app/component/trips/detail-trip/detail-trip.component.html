@@ -1,1 +1,31 @@
-<p>detail-trip works!</p>
+<section id="fh5co-projects">
+
+<!-- Un voyage a été trouvé -->
+
+<div *ngIf="trip" class="box">
+<div class="row col-sm-6">
+
+
+<div class="card fh5co-project-item image-popup">
+	<div class="image">
+  		<img class="card-img-top" src = "./assets/template/images/{{ trip.image }}" alt="Card image cap">
+  	</div>
+  	
+  <div class="card-body fh5co-text">
+    <h5 class="card-title">{{ trip.title }}</h5>
+    <p class="card-text">{{ trip.activity }}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- Aucun voyage n'a été trouvé -->
+<h4 *ngIf='!trip' class="center">
+  Aucun voyage n'a été trouvé
+</h4>
+
+</section>

@@ -15,7 +15,6 @@ import { NotFoundPageComponent } from './not-found/not-found-page.component';
 import { DetailTripComponent } from '../component/trips/detail-trip/detail-trip.component';
 import { EditTripComponent } from '../component/trips/edit-trip/edit-trip.component';
 
-
 @NgModule({
 	declarations: [
 		AllTripsComponent,
@@ -26,7 +25,7 @@ import { EditTripComponent } from '../component/trips/edit-trip/edit-trip.compon
 		LoginPageComponent,
 		NotFoundPageComponent,
 		DetailTripComponent,
-		EditTripComponent,
+		EditTripComponent
 	],
 	imports: [
 		ViewRoutingModule,
