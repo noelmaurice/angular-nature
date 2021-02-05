@@ -1,3 +1,17 @@
+# Introduction
+
+Ce projet est un projet pédagogique. En règle générale, par souci de discrétion et de respect pour les employeurs, les projets professionnels ne sont pas disponibles sur ce repository.
+
+# Copie d'écrans de l'application 
+
+## Affichage du portfolio de l'application WEB " One page "
+
+<img src="doc/demo/portfolio.png" />
+
+## Affichage de la bannière du site
+
+<img src="doc/demo/banniere.png " />
+
 # Nature
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.7.
